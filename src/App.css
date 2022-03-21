@@ -180,3 +180,73 @@ footer p {
 footer .social-wrapper a {
     padding-right: 10px !important;
 }
+
+
+/* Mobile */
+@media screen and (max-width:  768px) {
+
+    /* Main Content */
+    .main-content {
+        margin: 1rem;
+    }
+
+
+    /* Top Bar */
+    .top-bar {
+        background-color: var(--colorA);
+        padding: 3rem 2rem 2rem;
+        color: #e5e5e5;
+        font-family: var(--fontHeader);
+    }
+    .top-bar h1 { 
+        font-size: 1.1rem
+    }
+
+
+    /* Card */
+    .card {
+        margin:  2rem 0;
+    }
+    .currency-pair h2 {
+        padding: 5rem 1.75rem 1.5rem;
+        font-size: 1rem;
+    }
+
+
+    /* Form */
+    .currency-pair .input-wrapper input, 
+    .currency-pair .input-wrapper select {
+        margin-bottom: 1rem;
+    }
+    .currency-pair form {
+        padding: 0 2rem 2rem;
+    }
+    .switch-currency {
+        background-color: #f0f0f0;
+        border-radius: 8px;
+        margin: 0 0.75rem 1rem;
+        border: 2px solid #eaeaea;
+    }
+    .switch-currency img.switch {
+        transform: rotate(45deg);
+    }
+    .currency-pair input[type=submit] {
+        margin-top: 1rem !important;
+        line-height: 30px;
+        font-size: 1rem;
+    }
+    .error-message {
+        text-align: center;
+    }
+
+
+    /* Currency List */
+    .individual-currency {
+        width: 100% !important;
+    }
+    .individual-currency {
+        width: 100% !important;
+    }
+
+
+}
