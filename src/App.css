@@ -1,0 +1,182 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;800&family=Martel:wght@200;400;700;900&display=swap');
+
+/* Variables */
+
+:root {
+	--fontHeader: 'Martel', serif;
+	--fontBody:  'Assistant', sans-serif;
+	--colorA:  #003D7A;
+	--colorB:  #C77D00;
+	--colorC:  #00284F;
+}
+
+
+/* App */
+
+.app {
+	position: relative;
+    height: 100%;
+    min-height: 100vh;
+}
+
+
+/* Top Bar */
+
+.top-bar {
+    background-color: var(--colorA);
+    padding: 15rem 2rem 2rem;
+    color: #e5e5e5;
+    font-family: var(--fontHeader);
+}
+.brand {
+	font-weight: 600;
+}
+
+
+/* Main Content */
+
+.main-content {
+    max-width: 1024px;
+    margin: 3rem auto;
+}
+
+
+/* Card */
+
+.card {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    margin: 6rem 0;
+    background-color: #fff;
+    border: 1px solid #efefef;
+    border-radius: 12px;
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+/* Currency Pair */
+
+.currency-pair h2 {
+    font-family: var(--fontHeader);
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #f7f7f7;
+    background-color: var(--colorA);
+    padding: 8rem 3rem 1rem;
+    margin-bottom: 2rem;
+}
+.error-message {
+    color: var(--colorB);
+    font-family: var(--fontBody);
+    margin-top: 0.25rem;
+    font-size: 14px;
+}
+.currency-pair form {
+    padding:  1rem 3rem 3rem;
+}
+.currency-pair .input-wrapper input, 
+.currency-pair .input-wrapper select {
+    padding: 0;
+    height: 40px;
+    border-radius: 8px;
+    border: 1.5px solid var(--colorC);
+    font-family: var(--fontBody);
+    font-size: 16px;
+    line-height: 40px;
+    padding-left: 12px;
+    color: var(--colorC);
+}
+.switch-currency {
+    align-items: center;
+    justify-content: center;
+}
+.switch-currency img.switch {
+    background-color: #f0f0f0;
+    padding: 0.45rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.currency-pair input[type=submit] {
+    margin-top: 2.5rem !important;
+    max-width: 500px;
+    width: 100%;
+    background-color: var(--colorA);
+    outline: transparent;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    font-family: var(--fontHeader);
+    font-weight: 400;
+    line-height: 40px;
+}
+
+
+/* Rate List */
+
+.rate-list.card {
+    padding: 0 !important;
+    text-align: center;
+    overflow: hidden;
+}
+.rate-list h2 {
+    font-family: var(--fontHeader);
+    font-weight: 400;
+    font-size: 1.5rem;
+    padding: 1.5rem 0;
+    color: #f7f7f7;
+    background-color: var(--colorA);
+    margin-bottom: 1.5rem;
+}
+.rate-list p {
+    display: none;
+}
+.rate-list.not-ready p {
+    display: block;
+    font-family: var(--fontBody);
+    color: #716f6f;
+    font-style: italic;
+    padding:  1rem;
+    margin-bottom: 1.5rem;
+}
+.rate-list.not-ready ul {
+    display: none;
+}
+.rate-list ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 3rem;
+    margin-bottom: 1.5rem;
+}
+.rate-list ul li {
+    list-style: none;
+    width: calc(25% - 1.5rem);
+    font-family: var(--fontBody);
+    font-size: 1.05rem;
+    color: var(--colorC);
+    background-color: #f7f7f7;
+    padding: 0.25rem;
+    margin: 0.75rem;
+    border-radius: 5px;
+}
+
+
+/* Footer */
+
+footer {
+    background-color: var(--colorA);
+    width: 100%;
+    color: #e5e5e5;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding:  0.5rem;
+}
+footer p {
+    font-family: var(--fontBody);
+    margin-bottom: 0;
+    margin-right: 10px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+footer .social-wrapper a {
+    padding-right: 10px !important;
+}

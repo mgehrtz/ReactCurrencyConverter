@@ -4,11 +4,11 @@ function RateList(props) {
 	const { converted_data, target } = props;
 
 	if (converted_data && target) {
-		classes = 'rate-list d-block';
+		classes = 'rate-list card d-block';
 		main_conversion_msg = `${converted_data.amount} ${converted_data.base.replaceAll('"', "")} = ${converted_data.rates[target]} ${target}`;
 
 	} else {
-		classes = 'rate-list not-ready';
+		classes = 'rate-list card not-ready';
 		main_conversion_msg = 'Conversion Rates';
 	}
 

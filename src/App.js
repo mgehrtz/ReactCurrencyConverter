@@ -32,6 +32,20 @@ class App extends React.Component {
         // Prevent page relaod.
         event.preventDefault();
 
+        // Validation
+        if (!amt || base === 'default' || target === 'default') {
+            
+            // Add error to state
+            this.setState({ error: 'Please fill out all fields before continuing.'});
+
+            // Stop
+            return;   
+        } else {
+
+            this.setState({ error: null });
+
+        }
+
         // Ping API
         fetch(`https://api.frankfurter.app/latest?amount=${amt}&from=${base}`)
             .then(resp => resp.json())
@@ -46,22 +60,22 @@ class App extends React.Component {
     render() {
         const { currencies } = this.state;
         return (
-          <div className='app m-5'>
+          <div className='app'>
             <header className='top-bar'>
                 <h1 className='brand'>Currency Exchange Rates</h1>
             </header>
             <div className='main-content'>
-                <ConversionForm options={ currencies } convert={this.convertCurrency}/>
+                <ConversionForm options={ currencies } convert={this.convertCurrency} errors={this.state.error} />
                 <RateList converted_data={ this.state.converted_data } target={this.state.target}/>
             </div>
             <footer>
                 <p>Follow me</p>
-                <div className='social-wraper d-flex'>
-                    <a href='#'>
-                        <img width='20' height='20' src={process.env.PUBLIC_URL + '/github.svg'} className='icon'/>
+                <div className='social-wrapper d-flex'>
+                    <a href='https://github.com/mgehrtz' target='_blank' rel='noreferrer'>
+                        <img alt='View me on Github' width='20' height='20' src={process.env.PUBLIC_URL + '/github.svg'} className='icon'/>
                     </a>
-                    <a href='#'>
-                        <img width='20' height='20' src={process.env.PUBLIC_URL + '/linkedin.svg'} className='icon'/>
+                    <a href='https://www.linkedin.com/in/michael-gehrtz-96776a1a8/' target='_blank' rel='noreferrer'>
+                        <img alt='View my LinkedIn profile' width='20' height='20' src={process.env.PUBLIC_URL + '/linkedin.svg'} className='icon'/>
                     </a>
                 </div>
             </footer>
