@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css';
 import ConversionForm from './ConversionForm';
 import RateList from './RateList';
+import HistoryChart from './HistoryChart';
 
 
 
@@ -39,19 +40,34 @@ class App extends React.Component {
             this.setState({ error: 'Please fill out all fields before continuing.'});
 
             // Stop
-            return;   
+            return;
+
         } else {
 
             this.setState({ error: null });
 
         }
 
-        // Ping API
+        // Fetch Conversion Rates
         fetch(`https://api.frankfurter.app/latest?amount=${amt}&from=${base}`)
             .then(resp => resp.json())
             .then((converted_data) => {
                 this.setState({converted_data});
                 this.setState({target});
+                this.setState({base});
+        });
+
+        // Format date - past 30 days.
+        const endDate = new Date().toISOString().split('T')[0];
+        const startDate = new Date((new Date()).getTime() - (30 * 24 * 60 * 60 * 1000)).toISOString().split('T')[0];
+
+        // Fetch historical data
+        fetch(`https://api.frankfurter.app/${startDate}..${endDate}?amount=${amt}&from=${base}&to=${target}`)
+            .then(resp => resp.json())
+            .then((historical_data) => {
+
+                // Parse data to build chart.
+                this.setState({historical_data});
         });
 
     }
@@ -65,8 +81,9 @@ class App extends React.Component {
                 <h1 className='brand'>Currency Exchange Rates</h1>
             </header>
             <div className='main-content'>
-                <ConversionForm options={ currencies } convert={this.convertCurrency} errors={this.state.error} />
-                <RateList converted_data={ this.state.converted_data } target={this.state.target}/>
+                <ConversionForm options={ currencies } convert={ this.convertCurrency } errors={ this.state.error } />
+                <RateList converted_data={ this.state.converted_data } target={ this.state.target }/>
+                <HistoryChart data={ this.state.historical_data } targetCurrency={ this.state.target } baseCurrency={ this.state.base }/>
             </div>
             <footer>
                 <p>Follow me</p>
